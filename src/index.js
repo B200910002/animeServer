@@ -10,9 +10,9 @@ const API = require("./constants/api/Api");
 const client = require("./database/connection.js");
 
 //routes
-const seriesRoute = require("./routes/seriesRoute");
-const customerRoute = require("./routes/customerRoute");
-const viewserviceRoute = require("./routes/viewserviceRoute");
+const seriesRoute = require("../routes/seriesRoute");
+const customerRoute = require("../routes/customerRoute");
+const viewserviceRoute = require("../routes/viewserviceRoute");
 
 //uses
 app.use(express.urlencoded({ extended: true }));
