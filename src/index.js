@@ -10,9 +10,9 @@ const API = require("./constants/api/Api");
 const client = require("./database/connection.js");
 
 //routes
-const seriesRoute = require("../routes/seriesRoute");
-const customerRoute = require("../routes/customerRoute");
-const viewserviceRoute = require("../routes/viewserviceRoute");
+const seriesRoute = require("./routes/seriesRoute");
+const customerRoute = require("./routes/customerRoute");
+const viewserviceRoute = require("./routes/viewserviceRoute");
 
 //uses
 app.use(express.urlencoded({ extended: true }));
@@ -23,8 +23,6 @@ app.use(cors());
 app.use(API.tv_seriesAPI, seriesRoute);
 app.use(API.customerAPI, customerRoute);
 app.use(API.viewServiceAPI, viewserviceRoute);
-
-
 
 app.post("/upload/addseries", (req, res) => {
   const series_name = req.body.series_name;
