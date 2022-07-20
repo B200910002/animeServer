@@ -1,6 +1,11 @@
 const client = require("../database/connection");
 const Query = require("../constants/query/Query");
 
+//models
+const Author = require("./models/Author");
+const Studio = require("./models/Studio");
+const Series = require("./models/Series");
+
 //authors
 const authors = (req, res) => {
   client.query(Query.selectAuthors, (err, result) => {
@@ -10,48 +15,52 @@ const authors = (req, res) => {
 };
 
 const addAuthor = (req, res) => {
-  const first_name = req.body.first_name;
-  const last_name = req.body.last_name;
-  const birth_date = req.body.birth_date;
-  const birth_country = req.body.birth_country;
-
-  client.query(
-    Query.addAuthor,
-    [first_name, last_name, birth_date, birth_country],
-    (err, result) => {
-      console.log(first_name, last_name, birth_date, birth_country);
-      if (err) res.send(err.message);
-      else res.send("inserted author!");
-    }
+  const author = new Author(
+    req.body.author_id,
+    req.body.first_name,
+    req.body.last_name,
+    req.body.birth_date,
+    req.body.birth_country
   );
+
+  client.query(Query.addAuthor, author.getAuthorWithoutId(), (err, result) => {
+    console.log(
+      author.first_name,
+      author.last_name,
+      author.birth_date,
+      author.birth_country
+    );
+    if (err) res.send(err.message);
+    else res.send("inserted author!");
+  });
 };
 
 const updateAuthor = (req, res) => {
-  const auth_id = req.body.auth_id;
-  const first_name = req.body.first_name;
-  const last_name = req.body.last_name;
-  const birth_date = req.body.birth_date;
-  const birth_country = req.body.birth_country;
-
-  client.query(
-    Query.updateAuthor,
-    [auth_id, first_name, last_name, birth_date, birth_country],
-    (err, result) => {
-      console.log(auth_id);
-      console.log(first_name);
-      console.log(last_name);
-      console.log(birth_date);
-      console.log(birth_country);
-      if (err) res.send(err.message);
-      else res.send("updated author!");
-    }
+  const author = new Author(
+    req.body.author_id,
+    req.body.first_name,
+    req.body.last_name,
+    req.body.birth_date,
+    req.body.birth_country
   );
+
+  client.query(Query.updateAuthor, author.getAuthorWithId(), (err, result) => {
+    console.log(
+      author.author_id,
+      author.first_name,
+      author.last_name,
+      author.birth_date,
+      author.birth_country
+    );
+    if (err) res.send(err.message);
+    else res.send("updated author!");
+  });
 };
 
 const deleteAuthor = (req, res) => {
-  const auth_id = req.body.auth_id;
-  client.query(Query.deleteAuthor, [auth_id], (err, result) => {
-    console.log(auth_id);
+  const { author_id } = req.params;
+  client.query(Query.deleteAuthor, [author_id], (err, result) => {
+    console.log(author_id);
     if (err) res.send(err.message);
     else res.send("deleted author!");
   });
@@ -66,37 +75,40 @@ const studios = (req, res) => {
 };
 
 const addStudio = (req, res) => {
-  const studio_name = req.body.studio_name;
-  const c_date = req.body.c_date;
-  const producer = req.body.producer;
-  const location = req.body.location;
+  const studio = new Studio(
+    req.body.studio_id,
+    req.body.studio_name,
+    req.body.c_date,
+    req.body.producer,
+    req.body.location
+  );
 
-  client.query(Query.addStudio, [studio_name, c_date, producer, location], (err, result) => {
+  client.query(Query.addStudio, studio.getStudioWithoutId(), (err, result) => {
     if (err) res.send(err.message);
     else res.send("inserted studio!");
   });
 };
 
 const updateStudio = (req, res) => {
-  const studio_id = req.body.studio_id;
-  const studio_name = req.body.studio_name;
-  const c_date = req.body.c_date;
-  const producer = req.body.producer;
-  const location = req.body.location;
-
-  client.query(
-    Query.updateStudio,
-    [studio_id, studio_name, c_date, producer, location],
-    (err, result) => {
-      if (err) res.send(err.message);
-      else res.send("updated studio!");
-    }
+  const studio = new Studio(
+    req.body.studio_id,
+    req.body.studio_name,
+    req.body.c_date,
+    req.body.producer,
+    req.body.location
   );
+
+  client.query(Query.updateStudio, studio.getStudioWithId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("updated studio!");
+  });
 };
 
 const deleteStudio = (req, res) => {
-  const studio_id = req.body.studio_id;
+  const { studio_id } = req.params;
+  console.log(req.params);
   client.query(Query.deleteStudio, [studio_id], (err, result) => {
+    console.log(studio_id);
     if (err) res.send(err.message);
     else res.send("deleted studio!");
   });
@@ -112,29 +124,22 @@ const tv_series = (req, res) => {
 };
 
 const addTv_series = (req, res) => {
-  const series_name = req.body.series_name;
-  const publish_date = req.body.publish_date;
-  const series_mode = req.body.series_mode;
-  const total_episode = req.body.total_episode;
-  const description = req.body.description;
-  const auth_id = req.body.auth_id;
-  const age_order = req.body.age_order;
-  const photo = req.body.photo;
-  const studio_id = req.body.studio_id;
+  const series = new Series(
+    req.body.series_id,
+    req.body.series_name,
+    req.body.publish_date,
+    req.body.series_mode,
+    req.body.total_episode,
+    req.body.description,
+    req.body.auth_id,
+    req.body.age_order,
+    req.body.photo,
+    req.body.studio_id
+  );
 
   client.query(
     Query.addTv_series,
-    [
-      series_name,
-      publish_date,
-      series_mode,
-      total_episode,
-      description,
-      auth_id,
-      age_order,
-      photo,
-      studio_id,
-    ],
+    series.getSeriesWithoutId(),
     (err, result) => {
       if (err) res.send(err.message);
       else res.send("inserted series!");
@@ -143,31 +148,22 @@ const addTv_series = (req, res) => {
 };
 
 const updateTv_series = (req, res) => {
-  const series_id = req.body.series_id;
-  const series_name = req.body.series_name;
-  const publish_date = req.body.publish_date;
-  const series_mode = req.body.series_mode;
-  const total_episode = req.body.total_episode;
-  const description = req.body.description;
-  const auth_id = req.body.auth_id;
-  const age_order = req.body.age_order;
-  const photo = req.body.photo;
-  const studio_id = req.body.studio_id;
+  const series = new Series(
+    req.body.series_id,
+    req.body.series_name,
+    req.body.publish_date,
+    req.body.series_mode,
+    req.body.total_episode,
+    req.body.description,
+    req.body.auth_id,
+    req.body.age_order,
+    req.body.photo,
+    req.body.studio_id
+  );
 
   client.query(
     Query.updateTv_Series,
-    [
-      series_id,
-      series_name,
-      publish_date,
-      series_mode,
-      total_episode,
-      description,
-      auth_id,
-      age_order,
-      photo,
-      studio_id,
-    ],
+    series.getSeriesWithId(),
     (err, result) => {
       if (err) res.send(err.message);
       else res.send("updated series!");
@@ -176,7 +172,7 @@ const updateTv_series = (req, res) => {
 };
 
 const deleteTv_series = (req, res) => {
-  const series_id = req.body.series_id;
+  const { series_id } = req.params;
   client.query(Query.deleteTv_series, [series_id], (err, result) => {
     if (err) res.send(err.message);
     else res.send("deleted series!");

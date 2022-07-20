@@ -19,8 +19,8 @@ router.put("/updatestudio", list.updateStudio);
 router.put("/updatetvseries", list.updateTv_series);
 
 //delete
-router.delete("/deleteauthor", list.deleteAuthor);
-router.delete("/deletestudio", list.deleteStudio);
-router.delete("/deletetvseries", list.deleteTv_series);
+router.delete("/deleteauthor/:author_id", list.deleteAuthor);
+router.delete("/deletestudio/:studio_id", list.deleteStudio);
+router.delete("/deletetvseries/:series_id", list.deleteTv_series);
 
 module.exports = router;
