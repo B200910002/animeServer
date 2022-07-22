@@ -3,6 +3,7 @@ const Query = {
   selectAuthors: "select * from authors",
   selectStudio: "select * from studio",
   selectTv_series: "select * from tv_series",
+  selectTv_seriesWithId: "select * from tv_series where series_id = $1",
   tv_series:
     "select series_id,tv_series.series_name, publish_date,series_mode,total_episode,description,concat(authors.first_name ,' ', authors.last_name) as author_name, age_order,photo,studio.studio_name from tv_series inner join authors on tv_series.auth_id = authors.auth_id inner join studio on tv_series.studio_id = studio.studio_id",
   addAuthor: "INSERT INTO authors (first_name ,last_name ,birth_date ,brith_country) VALUES ($1,$2,$3,$4)",

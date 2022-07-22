@@ -7,6 +7,7 @@ const list = require("../controllers/series");
 router.get("/authors", list.authors);
 router.get("/studios", list.studios);
 router.get("/tvseries", list.tv_series);
+router.get("/tvseriesid", list.tv_series_with_id);
 
 //post
 router.post("/addauthor", list.addAuthor);

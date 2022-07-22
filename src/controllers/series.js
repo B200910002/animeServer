@@ -116,7 +116,17 @@ const deleteStudio = (req, res) => {
 
 //tv_series
 const tv_series = (req, res) => {
+  const sql1 = Query.tv_series;
+  client.query(sql1, (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const tv_series_with_id = (req, res) => {
   const sql = Query.selectTv_series;
+  // const series = new Series();
+  // series.series_id = req.body.series_id;
   client.query(sql, (err, result) => {
     if (err) res.send(err.message);
     else res.send(result);
@@ -124,6 +134,7 @@ const tv_series = (req, res) => {
 };
 
 const addTv_series = (req, res) => {
+  let uploadPath;
   const series = new Series(
     req.body.series_id,
     req.body.series_name,
@@ -193,6 +204,7 @@ const seriesQueryList = {
   addTv_series,
   updateTv_series,
   deleteTv_series,
+  tv_series_with_id,
 };
 
 module.exports = seriesQueryList;

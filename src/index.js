@@ -2,6 +2,9 @@ const port = 4000;
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
+
+app.use(fileUpload());
 
 //api
 const API = require("./constants/api/Api");
