@@ -9,10 +9,10 @@ router.get("/mails", list.mails);
 router.get("/numbers", list.numbers);
 
 //post
-
+router.post("/login", list.login);
+router.post("/regist", list.regist);
 
 //put
-
 
 //delete
 
