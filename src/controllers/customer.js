@@ -1,5 +1,6 @@
 const client = require("../database/connection");
 const Query = require("../constants/query/Query");
+//models
 const Customer = require("./models/Customer");
 
 const customer = (req, res) => {

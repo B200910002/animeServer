@@ -5,6 +5,8 @@ const Query = require("../constants/query/Query");
 const Author = require("./models/Author");
 const Studio = require("./models/Studio");
 const Series = require("./models/Series");
+const Character = require("./models/Character");
+const VoiceActor = require("./models/VoiceActor");
 
 //authors
 const authors = (req, res) => {
@@ -190,6 +192,86 @@ const deleteTv_series = (req, res) => {
   });
 };
 
+//Characters
+
+const characters = (req, res) => {
+  client.query(Query.selectCharacters, (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const addCharacter = (req, res) => {
+  const character = new Character(
+    req.body.series_id,
+    req.body.character_name,
+    req.body.voice_actor_id
+  );
+  client.query(Query.addCharacter, character.getWithoutId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const updateCharacter = (req, res) => {
+  const character = new Character(
+    req.body.series_id,
+    req.body.character_name,
+    req.body.voice_actor_id
+  );
+  client.query(Query.updateCharacter, character.getWithId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("updated character!");
+  });
+};
+
+const deleteCharacter = (req, res) => {
+  //TO DO
+};
+
+//VoiceActors
+
+const voiceActor = (req, res) => {
+  client.query(Query.selectVoiceActors, (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const addVoiceActor = (req, res) => {
+  const actor = new VoiceActor(
+    req.body.actor_id,
+    req.body.first_name,
+    req.body.last_name,
+    req.body.birth_date
+  );
+  client.query(Query.addVoiceActor, actor.getWithoutId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("inserted actor!");
+  });
+};
+
+const updateVoiceActor = (req, res) => {
+  const actor = new VoiceActor(
+    req.body.actor_id,
+    req.body.first_name,
+    req.body.last_name,
+    req.body.birth_date
+  );
+  client.query(Query.updateVoiceActor, actor.getWithId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("updated voice actor!");
+  });
+};
+
+const deleteVoiceActor = (req, res) => {
+  const { actor_id } = req.params;
+  client.query(Query.deleteVoiceActor, [actor_id], (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("deleted voice actor!");
+  });
+};
+
 //exported list
 const seriesQueryList = {
   authors,
@@ -205,6 +287,12 @@ const seriesQueryList = {
   updateTv_series,
   deleteTv_series,
   tv_series_with_id,
+  characters,
+
+  voiceActor,
+  addVoiceActor,
+  updateVoiceActor,
+  deleteVoiceActor,
 };
 
 module.exports = seriesQueryList;
