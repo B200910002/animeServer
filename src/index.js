@@ -15,6 +15,7 @@ const client = require("./database/connection.js");
 //routes
 const seriesRoute = require("./routes/seriesRoute");
 const customerRoute = require("./routes/customerRoute");
+const translatorRoute = require("./routes/translatorRoute");
 const viewserviceRoute = require("./routes/viewserviceRoute");
 
 //uses
@@ -25,6 +26,7 @@ app.use(cors());
 //use api
 app.use(API.tv_seriesAPI, seriesRoute);
 app.use(API.customerAPI, customerRoute);
+app.use(API.translatorAPI, translatorRoute);
 app.use(API.viewServiceAPI, viewserviceRoute);
 
 app.listen(port, () => {
