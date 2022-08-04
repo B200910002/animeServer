@@ -45,6 +45,7 @@ class Query{
     static deleteCudNum = "";
     static selectCusUP ="select * from customers where username = $1 and password = $2";
     static deleteCusMail = "";
+    static allCustomer = "";
 
     //regist
 
