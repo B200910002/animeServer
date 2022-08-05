@@ -65,7 +65,11 @@ class Query{
     //viewservice
     static selectViewService = "select * from view_service";
     static viewService = "";
-}
+
+    //plused query
+    static totalIncome = "SELECT RENT_SERVICES.SERVICE_NAME, COUNT(*) AS төлөлт_ТОО,SUM(PAYMENTS.TOTAL_PAYMENT) AS нийт_ОРЛОГО FROM PAYMENTS INNER JOIN RENT_SERVICES ON PAYMENTS.PAY_ID = RENT_SERVICES.PAY_ID GROUP BY RENT_SERVICES.SERVICE_NAME"
+    
+}   
 
 
 module.exports = Query;

@@ -136,7 +136,6 @@ const tv_series_with_id = (req, res) => {
 };
 
 const addTv_series = (req, res) => {
-  let uploadPath;
   const series = new Series(
     req.body.series_id,
     req.body.series_name,
@@ -149,7 +148,6 @@ const addTv_series = (req, res) => {
     req.body.photo,
     req.body.studio_id
   );
-
   client.query(
     Query.addTv_series,
     series.getSeriesWithoutId(),
@@ -158,6 +156,25 @@ const addTv_series = (req, res) => {
       else res.send("inserted series!");
     }
   );
+};
+
+const uploadPic = (req, res) => {
+  let sampleFile;
+  let uploadPath;
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were upload.");
+  }
+
+  sampleFile = req.files.photo;
+  console.log(sampleFile);
+  uploadPath = process.cwd() + "/public/" + sampleFile.name;
+  console.log(sampleFile);
+
+  sampleFile.mv(uploadPath, function (err) {
+    if (err) return res.status(500).send(err);
+    res.send("File uploaded!");
+  });
 };
 
 const updateTv_series = (req, res) => {
@@ -274,6 +291,7 @@ const deleteVoiceActor = (req, res) => {
 
 //exported list
 const seriesQueryList = {
+  uploadPic,
   authors,
   addAuthor,
   updateAuthor,

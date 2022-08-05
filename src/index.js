@@ -19,6 +19,7 @@ const translatorRoute = require("./routes/translatorRoute");
 const viewserviceRoute = require("./routes/viewserviceRoute");
 
 //uses
+app.use("/public", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());

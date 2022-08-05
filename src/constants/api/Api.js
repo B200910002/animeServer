@@ -4,12 +4,10 @@ const translatorAPI = "/api/v1/translator";
 const tv_seriesAPI = "/api/v1/tv_series";
 const viewServiceAPI = "/api/v1/viewservice";
 
-const Api = {
+module.exports = {
   slash,
   customerAPI,
   translatorAPI,
   tv_seriesAPI,
   viewServiceAPI,
 };
-
-module.exports = Api;
