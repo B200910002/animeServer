@@ -18,6 +18,7 @@ router.post("/addtvseries", series.addTv_series);
 router.post("/addcharacter"); //TO DO
 router.post("/addvoiceactor", series.addVoiceActor);
 router.post("/uploadpic", series.uploadPic);
+router.post("/uploadvideo", series.uploadVideo);
 
 //put
 router.put("/updateauthor", series.updateAuthor);

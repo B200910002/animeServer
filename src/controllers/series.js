@@ -287,7 +287,25 @@ const deleteVoiceActor = (req, res) => {
   });
 };
 
+const uploadVideo = (req, res) => {
+  let sampleFile;
+  let uploadPath;
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were upload.");
+  }
+
+  sampleFile = req.files.video;
+  uploadPath = process.cwd() + "/public/video/" + sampleFile.name;
+
+  sampleFile.mv(uploadPath, function (err) {
+    if (err) return res.status(500).send(err);
+    res.send(sampleFile.name);
+  });
+};
+
 module.exports = {
+  uploadVideo,
   uploadPic,
   authors,
   addAuthor,

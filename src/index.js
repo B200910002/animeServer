@@ -1,4 +1,4 @@
-const port = 4000;
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -30,6 +30,6 @@ app.use(API.customerAPI, customerRoute);
 app.use(API.translatorAPI, translatorRoute);
 app.use(API.viewServiceAPI, viewserviceRoute);
 
-app.listen(port, () => {
-  console.log(`use the port ->  http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(process.env.LOCAL_HOST_PORT);
 });
