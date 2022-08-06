@@ -15,6 +15,4 @@ const viewservice1 = (req, res) => {
   });
 };
 
-const viewQueryList = { viewservice, viewservice1 };
-
-module.exports = viewQueryList;
+module.exports = { viewservice, viewservice1 };

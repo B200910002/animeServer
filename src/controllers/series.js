@@ -167,13 +167,11 @@ const uploadPic = (req, res) => {
   }
 
   sampleFile = req.files.photo;
-  console.log(sampleFile);
-  uploadPath = process.cwd() + "/public/" + sampleFile.name;
-  console.log(sampleFile);
+  uploadPath = process.cwd() + "/public/img/" + sampleFile.name;
 
   sampleFile.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
-    res.send("File uploaded!");
+    res.send(sampleFile.name);
   });
 };
 
@@ -289,8 +287,7 @@ const deleteVoiceActor = (req, res) => {
   });
 };
 
-//exported list
-const seriesQueryList = {
+module.exports = {
   uploadPic,
   authors,
   addAuthor,
@@ -306,11 +303,8 @@ const seriesQueryList = {
   deleteTv_series,
   tv_series_with_id,
   characters,
-
   voiceActor,
   addVoiceActor,
   updateVoiceActor,
   deleteVoiceActor,
 };
-
-module.exports = seriesQueryList;

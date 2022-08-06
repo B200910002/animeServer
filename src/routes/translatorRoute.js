@@ -1,22 +1,22 @@
 const express = require("express");
 const router = express.Router();
 
-const list = require("../controllers/translator");
+const translator = require("../controllers/translator");
 
 //get
-router.get("/translators", list.translator);
-router.get("/numbers", list.number);
+router.get("/translators", translator.translator);
+router.get("/numbers", translator.number);
 
 //post
-router.post("/addtranslator", list.addTranslator);
-router.post("/addnumber", list.addNumber);
+router.post("/addtranslator", translator.addTranslator);
+router.post("/addnumber", translator.addNumber);
 
 //put
-router.put("/updatetranslator", list.updateTranslator);
-router.put("/updatenumber", list.updateNumber); //TO DO
+router.put("/updatetranslator", translator.updateTranslator);
+router.put("/updatenumber", translator.updateNumber); //TO DO
 
 // delete
-router.delete("/deletetranslator/:tra_id", list.deleteTranslator);
-router.delete("/deletenumber/:owner_id", list.deleteNumber); //TO DO
+router.delete("/deletetranslator/:tra_id", translator.deleteTranslator);
+router.delete("/deletenumber/:owner_id", translator.deleteNumber); //TO DO
 
 module.exports = router;

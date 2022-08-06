@@ -154,7 +154,7 @@ const regist = (req, res) => {
   });
 };
 
-const cusQueryList = {
+module.exports = {
   addNumber,
   updateNumber,
   deleteNumber,
@@ -170,5 +170,3 @@ const cusQueryList = {
   delelteCustomer,
   addEmail,
 };
-
-module.exports = cusQueryList;

@@ -1,36 +1,36 @@
 const express = require("express");
 const router = express.Router();
 
-const list = require("../controllers/series");
+const series = require("../controllers/series");
 
 //get
-router.get("/authors", list.authors);
-router.get("/studios", list.studios);
-router.get("/tvseries", list.tv_series);
-router.get("/tvseriesid", list.tv_series_with_id);
-router.get("/characters", list.characters);
-router.get("/voiceactors", list.voiceActor);
+router.get("/authors", series.authors);
+router.get("/studios", series.studios);
+router.get("/tvseries", series.tv_series);
+router.get("/tvseriesid", series.tv_series_with_id);
+router.get("/characters", series.characters);
+router.get("/voiceactors", series.voiceActor);
 
 //post
-router.post("/addauthor", list.addAuthor);
-router.post("/addstudio", list.addStudio);
-router.post("/addtvseries", list.addTv_series);
+router.post("/addauthor", series.addAuthor);
+router.post("/addstudio", series.addStudio);
+router.post("/addtvseries", series.addTv_series);
 router.post("/addcharacter"); //TO DO
-router.post("/addvoiceactor", list.addVoiceActor);
-router.post("/uploadpic", list.uploadPic);
+router.post("/addvoiceactor", series.addVoiceActor);
+router.post("/uploadpic", series.uploadPic);
 
 //put
-router.put("/updateauthor", list.updateAuthor);
-router.put("/updatestudio", list.updateStudio);
-router.put("/updatetvseries", list.updateTv_series);
+router.put("/updateauthor", series.updateAuthor);
+router.put("/updatestudio", series.updateStudio);
+router.put("/updatetvseries", series.updateTv_series);
 router.put("/updatecharacter"); //TO DO
-router.put("/updatevoiceactor", list.updateVoiceActor);
+router.put("/updatevoiceactor", series.updateVoiceActor);
 
 //delete
-router.delete("/deleteauthor/:author_id", list.deleteAuthor);
-router.delete("/deletestudio/:studio_id", list.deleteStudio);
-router.delete("/deletetvseries/:series_id", list.deleteTv_series);
+router.delete("/deleteauthor/:author_id", series.deleteAuthor);
+router.delete("/deletestudio/:studio_id", series.deleteStudio);
+router.delete("/deletetvseries/:series_id", series.deleteTv_series);
 router.delete("/deletecharacter/:"); // TO DO
-router.delete("/deletevoiceactor/:actor_id", list.deleteVoiceActor);
+router.delete("/deletevoiceactor/:actor_id", series.deleteVoiceActor);
 
 module.exports = router;

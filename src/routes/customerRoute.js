@@ -1,28 +1,28 @@
 const express = require("express");
 const router = express.Router();
 
-const list = require("../controllers/customer");
+const customer = require("../controllers/customer");
 
 //get
-router.get("/informations", list.customer);
-router.get("/emails", list.emails);
-router.get("/numbers", list.numbers);
+router.get("/informations", customer.customer);
+router.get("/emails", customer.emails);
+router.get("/numbers", customer.numbers);
 
 //post
-router.post("/login", list.login);
-router.post("/regist", list.regist);
-router.post("/addcustomer", list.addCustomer);
-router.post("/addnumber", list.addNumber);
-router.post("/addemail", list.addEmail);
+router.post("/login", customer.login);
+router.post("/regist", customer.regist);
+router.post("/addcustomer", customer.addCustomer);
+router.post("/addnumber", customer.addNumber);
+router.post("/addemail", customer.addEmail);
 
 //put
-router.put("/updatecustomer", list.updateCustomer);
-router.put("/updatenumber", list.updateNumber);
-router.put("/updateemail", list.updateEmail);
+router.put("/updatecustomer", customer.updateCustomer);
+router.put("/updatenumber", customer.updateNumber);
+router.put("/updateemail", customer.updateEmail);
 
 //delete
-router.delete("/deletecustomer/:cus_id", list.delelteCustomer);
-router.delete("/deletenumber/:cus_id/:number", list.deleteNumber);
-router.delete("/deleteemail/:cus_id/:email", list.deleteEmail);
+router.delete("/deletecustomer/:cus_id", customer.delelteCustomer);
+router.delete("/deletenumber/:cus_id/:number", customer.deleteNumber);
+router.delete("/deleteemail/:cus_id/:email", customer.deleteEmail);
 
 module.exports = router;

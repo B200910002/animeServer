@@ -99,7 +99,7 @@ const deleteNumber = (req, res) => {
   });
 };
 
-const list = {
+module.exports = {
   translator,
   addTranslator,
   updateTranslator,
@@ -109,5 +109,3 @@ const list = {
   updateNumber,
   deleteNumber,
 };
-
-module.exports = list;
