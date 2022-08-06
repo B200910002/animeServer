@@ -1,5 +1,6 @@
 const client = require("../database/connection");
 const Query = require("../constants/query/Query");
+const fs = require("fs");
 
 //models
 const Author = require("./models/Author");
@@ -7,6 +8,7 @@ const Studio = require("./models/Studio");
 const Series = require("./models/Series");
 const Character = require("./models/Character");
 const VoiceActor = require("./models/VoiceActor");
+const Episode = require("./models/Episode");
 
 //authors
 const authors = (req, res) => {
@@ -304,7 +306,78 @@ const uploadVideo = (req, res) => {
   });
 };
 
+const episodes = (req, res) => {
+  const episode = new Episode(
+    req.body.ep_id,
+    req.body.series_name,
+    req.body.ep_number,
+    req.body.ep_name,
+    req.body.ep_date,
+    req.body.file_name
+  );
+
+  client.query(Query.episodesSeriesName, [episode.series], (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const allEpisodes = (req, res) => {
+  client.query(Query.allEpisodes, (err, result) => {
+    if (err) res.send(err.message);
+    else res.send(result);
+  });
+};
+
+const addEpisode = (req, res) => {
+  const episode = new Episode(
+    req.body.ep_id,
+    req.body.series_id,
+    req.body.ep_number,
+    req.body.ep_name,
+    req.body.ep_date,
+    req.body.file_name,
+    req.body.file_path
+  );
+
+  client.query(Query.addEpisode, episode.getWithoutId(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("inserted episode!");
+  });
+};
+
+const updateEpisode = (req, res) => {
+  const episode = new Episode(
+    req.body.ep_id,
+    req.body.series_id,
+    req.body.ep_number,
+    req.body.ep_name,
+    req.body.ep_date,
+    req.body.file_name,
+    req.body.file_path
+  );
+
+  client.query(Query.updateEpisode, episode.get(), (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("updated episode!");
+  });
+};
+
+const deleteEpisode = (req, res) => {
+  const {ep_id} = req.params;
+
+  client.query(Query.deleteEpisode, [ep_id], (err, result) => {
+    if (err) res.send(err.message);
+    else res.send("deleted episode!");
+  });
+};
+
 module.exports = {
+  addEpisode,
+  allEpisodes,
+  updateEpisode,
+  deleteEpisode,
+  episodes,
   uploadVideo,
   uploadPic,
   authors,
