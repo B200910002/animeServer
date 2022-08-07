@@ -134,6 +134,7 @@ const tv_series_with_id = (req, res) => {
   client.query(sql, (err, result) => {
     if (err) res.send(err.message);
     else res.send(result);
+    
   });
 };
 
