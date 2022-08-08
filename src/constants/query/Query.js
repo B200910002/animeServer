@@ -52,12 +52,14 @@ const selectCusNum = "select * from cus_numbers";
 const addCusNum = "insert into cus_numbers (cus_id, cus_number) values ($1,$2)";
 const updateCudNum ="update cus_numbers set cus_number = $3 where cus_id = $1 and cus_number = $2";
 const deleteCusNum ="delete from cus_numbers where cus_id = $1 and cus_number = $2";
+const deleteAllCusNum = "delete from cus_numbers where cus_id = $1"
 
 //customer mails
 const selectCusMail = "select * from cus_mail";
 const addCusMail = "insert into cus_mail (cus_id, cus_mail) values ($1,$2)";
 const updateCusMail ="update cus_mail set cus_mail = $3 where cus_id = $1 and cus_mail = $2";
 const deleteCusMail ="delete from cus_mail where cus_id = $1 and cus_mail = $2";
+const deleteAllCusMail = "delete from cus_mail where cus_id = $1"
 
 //translator
 const selectTrans = "select * from translators";
@@ -75,10 +77,20 @@ const deleteTraNumber = "delete from tra_numbers where tra_id = $1"; //TO DO
 //viewservice
 const selectViewService = "select * from view_service";
 const viewService = "";
+const deleteAllViewService = "delete from view_service where cus_id = $1"
+
+//rent service
+const selectRentService = "select * from rent_services"
+const deleteAllRentService = "delete from rent_services where cus_id = $1"
 
 
 
 module.exports = {
+  selectRentService,
+  deleteAllRentService,
+  deleteAllViewService,
+  deleteAllCusMail,
+  deleteAllCusNum,
   addEpisode,
   updateEpisode,
   deleteEpisode,

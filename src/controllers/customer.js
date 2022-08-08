@@ -47,10 +47,27 @@ const updateCustomer = (req, res) => {
 };
 
 const delelteCustomer = (req, res) => {
+  var response = "";
   const { cus_id } = req.params;
+  client.query(Query.deleteAllCusMail, [cus_id], (err, result) => {
+    if (err) res.send(err.message);
+    else response = response + "deleted all customers emails!\n";
+  });
+  client.query(Query.deleteAllCusNum, [cus_id], (err, result) => {
+    if (err) res.send(err.message);
+    else response = response + "deleted all customers numbers!\n";
+  });
+  client.query(Query.deleteAllViewService, [cus_id], (err, result) => {
+    if (err) res.send(err.message);
+    else response = response + "deleted all customers serve!\n";
+  });
+  client.query(Query.deleteAllRentService, [cus_id], (err, result) => {
+    if (err) res.send(err.message);
+    else response = response + "deleted all customers rent serve!\n";
+  })
   client.query(Query.deleteCustomer, [cus_id], (err, result) => {
     if (err) res.send(err.message);
-    else res.send("deleted customer!");
+    else res.send(response + "deleted customer!");
   });
 };
 
