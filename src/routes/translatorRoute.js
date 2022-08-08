@@ -6,10 +6,14 @@ const translator = require("../controllers/translator");
 //get
 router.get("/translators", translator.translator);
 router.get("/numbers", translator.number);
+router.get("/users", translator.getUser);
+
 
 //post
 router.post("/addtranslator", translator.addTranslator);
 router.post("/addnumber", translator.addNumber);
+router.post("/users/login", translator.login);
+router.post("/users", translator.postUser);
 
 //put
 router.put("/updatetranslator", translator.updateTranslator);
