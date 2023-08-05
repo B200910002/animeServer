@@ -1,0 +1,62 @@
+[
+    {
+        "series_id": 10000001,
+        "series_name": "Naruto",
+        "publish_date": "2005-09-06T15:00:00.000Z",
+        "series_mode": "END",
+        "total_episode": 720,
+        "description": "sad",
+        "author_name": "Masashi Kishimoto",
+        "age_order": "KID",
+        "photo": "http://localhost:4000/public/img/wp6413700.webp",
+        "studio_name": "Pierrot"
+    },
+    {
+        "series_id": 10000002,
+        "series_name": "Death Note",
+        "publish_date": "2005-12-29T16:00:00.000Z",
+        "series_mode": "END",
+        "total_episode": 37,
+        "description": "dark",
+        "author_name": "Takeshi Obata",
+        "age_order": "ADULT",
+        "photo": "http://localhost:4000/public/img/1889742.jpg",
+        "studio_name": "Madhouse"
+    },
+    {
+        "series_id": 10000007,
+        "series_name": "Made in abyss",
+        "publish_date": "2017-07-02T16:00:00.000Z",
+        "series_mode": "END",
+        "total_episode": 13,
+        "description": "Абис нь нууцлаг амьтад, эртний шүтээнүүдийг агуулсан дэлхий гүн рүү чиглэсэн нүх билээ. Тоолж баршгүй зоригт шумбагчид Абисийн тэрхүү нууцуудыг тайлах гэж айдсаа даван доошилцгооно. Хамгийн шилдэг, зоригтой шумбагчид болох Цагаан шүглүүд бол гадаргуу дээрх иргэдэд домог гэж цоллуулсан хүмүүс юм.",
+        "author_name": "Akihito Tsukushi",
+        "age_order": "ADULT",
+        "photo": "http://localhost:4000/public/img/1083502.jpg",
+        "studio_name": "Kinema Citrus"
+    },
+    {
+        "series_id": 10000008,
+        "series_name": "Dororo",
+        "publish_date": "2019-01-04T16:00:00.000Z",
+        "series_mode": "E",
+        "total_episode": 24,
+        "description": "Дороро бол өнчин хулгайч хүүхэд, тэр нэг өдөр Хяаккимарү гэх ронинтой таардаг. Түүний эцэг бол шуналтай захирагч ба тэр төрөөгүй хүүхдийнхээ биеэр 12 чөтгөртэй наймаа хийдэг. Үүний улмаас тэр гар, хөл, нүд, чих, хамар эсвэл амгүй төрдөг ба жоохон байхад нь голд урсагдаг. Тэр Хонма гэх хүнд аваруулж, тулааны эрдэм сурч чөтгөр устгаж эхэлдэг ба устгасан чөтгөр болгон нь түүний эрхтэнг буцааж өгдөг.",
+        "author_name": "Osamu Tezuka",
+        "age_order": "adult",
+        "photo": "http://localhost:4000/public/img/kzRvpKbUiONR3ZuM1QOX2I1g302.jpg",
+        "studio_name": "Mappa"
+    },
+    {
+        "series_id": 10000000,
+        "series_name": "Attack on Titan",
+        "publish_date": "2013-09-22T16:00:00.000Z",
+        "series_mode": "END",
+        "total_episode": 83,
+        "description": "sad",
+        "author_name": "Hajime Isayama",
+        "age_order": "ADULT",
+        "photo": "http://localhost:4000/public/img/wp10544233.webp",
+        "studio_name": "Wit studio"
+    }
+]

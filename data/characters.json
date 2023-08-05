@@ -1,0 +1,52 @@
+[
+    {
+        "series_id": 10000000,
+        "character_name": "Eren Yeagar",
+        "voice_actor_id": 5
+    },
+    {
+        "series_id": 10000000,
+        "character_name": "Rainer Braun",
+        "voice_actor_id": 6
+    },
+    {
+        "series_id": 10000001,
+        "character_name": "Naruto Uzumaki",
+        "voice_actor_id": 1
+    },
+    {
+        "series_id": 10000001,
+        "character_name": "Sakura Haruno",
+        "voice_actor_id": 2
+    },
+    {
+        "series_id": 10000002,
+        "character_name": "Light Yagami",
+        "voice_actor_id": 3
+    },
+    {
+        "series_id": 10000002,
+        "character_name": "L",
+        "voice_actor_id": 4
+    },
+    {
+        "series_id": 10000007,
+        "character_name": "Riko",
+        "voice_actor_id": 7
+    },
+    {
+        "series_id": 10000007,
+        "character_name": "Reg",
+        "voice_actor_id": 8
+    },
+    {
+        "series_id": 10000008,
+        "character_name": "Dororo",
+        "voice_actor_id": 9
+    },
+    {
+        "series_id": 10000008,
+        "character_name": "Hyakkimaru",
+        "voice_actor_id": 10
+    }
+]

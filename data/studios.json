@@ -1,0 +1,37 @@
+[
+    {
+        "studio_id": 2,
+        "studio_name": "Pierrot",
+        "c_date": "1978-12-31T16:00:00.000Z",
+        "found_producer": null,
+        "f_location": "japan"
+    },
+    {
+        "studio_id": 3,
+        "studio_name": "Madhouse",
+        "c_date": "1971-12-31T17:00:00.000Z",
+        "found_producer": null,
+        "f_location": "japan"
+    },
+    {
+        "studio_id": 4,
+        "studio_name": "Kinema Citrus",
+        "c_date": "2008-03-02T16:00:00.000Z",
+        "found_producer": null,
+        "f_location": "japan-tokyo-suginami"
+    },
+    {
+        "studio_id": 5,
+        "studio_name": "Mappa",
+        "c_date": "2011-06-13T16:00:00.000Z",
+        "found_producer": null,
+        "f_location": "japan-tokyo-suginami"
+    },
+    {
+        "studio_id": 1,
+        "studio_name": "Wit studio",
+        "c_date": "2012-05-30T16:00:00.000Z",
+        "found_producer": null,
+        "f_location": null
+    }
+]

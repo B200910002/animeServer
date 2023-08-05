@@ -1,0 +1,37 @@
+[
+    {
+        "auth_id": 3,
+        "first_name": "Takeshi",
+        "last_name": "Obata",
+        "birth_date": "1969-02-10T17:00:00.000Z",
+        "brith_country": "Japan"
+    },
+    {
+        "auth_id": 4,
+        "first_name": "Akihito",
+        "last_name": "Tsukushi",
+        "birth_date": "1996-11-25T16:00:00.000Z",
+        "brith_country": "Japan"
+    },
+    {
+        "auth_id": 5,
+        "first_name": "Osamu",
+        "last_name": "Tezuka",
+        "birth_date": "1928-11-02T17:00:00.000Z",
+        "brith_country": "Japan"
+    },
+    {
+        "auth_id": 2,
+        "first_name": "Masashi",
+        "last_name": "Kishimoto",
+        "birth_date": "1974-11-06T17:00:00.000Z",
+        "brith_country": "Japan"
+    },
+    {
+        "auth_id": 1,
+        "first_name": "Hajime",
+        "last_name": "Isayama",
+        "birth_date": "1986-08-28T15:00:00.000Z",
+        "brith_country": "Japan"
+    }
+]
